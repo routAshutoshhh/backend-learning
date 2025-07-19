@@ -1,0 +1,17 @@
+create a backend logic for the server 
+which is connected to databases
+
+
+in that  we need to do the following things-
+
+1. create a route where we need to send the data to the database which the user send provided that already does not exits the database
+ as the data is - username  and password - /signup
+
+2. our backend will check if the user  already exits in the  database and if the user already exits then send them  back  the jwt else not 
+    - /signin
+
+3. final route that we need to deal with 
+    - /users
+    send the token  in the header and verify the token and send back the user details
+
+- library we going to use is - mongoose as it can do mongodb validation as it is schema less 
