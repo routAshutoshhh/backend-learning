@@ -1,13 +1,11 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
-const jwtPassword =  "123456" ; 
-
+const jwtPassword =  "123456" ;  //  it should be a bit more secure 
 const dummyData = require("./data.js"); // Importing the dummy data from data.js-
 
-
+//initiating  the application .
 const app = express();
 app.use(express.json ())
-
 
 
 //function to check if the user exists  in the dummy data
@@ -15,7 +13,7 @@ function userExists(username, password) {
   //if the userName and password exists then we need to match with the existing userName and Password
   for (let i = 0; i < dummyData.length; i++) {
     if (
-      dummyData[i].username === username &&
+      dummyData[i].username  === username &&
       dummyData[i].password === password
     ) {
       return true;
@@ -31,10 +29,10 @@ function userExistsOrNot(username, pass) {
   const user = dummyData.find ((u )=>(u.username === username && u.password === pass)
 )
 	//now if we have the user and then we can return true so if user does not have any kind of value then we can return false
-
   if (user == undefined) return false;
   return true;
 }
+
 
 
 
@@ -53,8 +51,6 @@ app.post("/signin", function (req, res) {
 	message :"here is  your token : "+ token , 
   })
 }); 
-
-
 
 
 
@@ -80,4 +76,5 @@ app.get("/users", function (req, res) {
 });
 
 
+//server starting 
 app.listen(3000);
